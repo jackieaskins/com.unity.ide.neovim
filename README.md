@@ -7,7 +7,7 @@ This repo was previously archived due to a [maintained fork from TheArgus](https
 # :hammer_and_wrench: Installation
 
 ### Clone this repo
-``git clone https://github.com/the-argus/com.unity.ide.neovim.git``
+``git clone https://github.com/niscolas/com.unity.ide.neovim.git``
 
 ### Install the package
 Open Unity. Go to Window > Package Manager and select the "+" sign at the top
