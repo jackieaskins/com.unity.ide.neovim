@@ -1,11 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-nvr_exec=/bin/nvr
 # replace with your terminal
-term_exec=/bin/kitty
+term_exec=kitty
 
-if [[ -n `$nvr_exec --serverlist | grep unity` ]]; then
-    $nvr_exec --servername unity --remote-silent $@
-else
-    $term_exec -e ${nvr_exec} --servername unity --remote-silent $@
+server_path=$HOME/.cache/nvim/com.unity.server.pipe
+
+if ! [ -e $server_path ]; then
+    # start the server if its pipe doesn't exist
+    $term_exec nvim --listen $server_path $2
 fi
+
+# open file in server
+$term_exec nvim --server $server_path --remote-send "<C-\><C-n>:n $2<CR>:call cursor($1)<CR>"
