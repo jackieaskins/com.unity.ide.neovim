@@ -103,7 +103,7 @@ namespace Packages.Neovim.Editor
 
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
-              Arguments = $"{line},{column} {path}",
+              Arguments = $"{path} {line},{column}",
               FileName = launcherPath,
               UseShellExecute = false,
               RedirectStandardOutput = true,
