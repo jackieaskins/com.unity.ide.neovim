@@ -406,9 +406,9 @@ namespace Packages.Neovim.Editor.ProjectGeneration
 			var responseFilesData = assembly.ParseResponseFileData(m_AssemblyNameProvider, ProjectDirectory).ToList();
 			var projectBuilder = new StringBuilder(ProjectHeader(assembly, responseFilesData));
 
-            var assemblyPath = CompilationPipeline.GetAssemblyDefinitionFilePathFromAssemblyReference(assembly.Name);
-            var allAssemblyScriptsPath = Path.GetDirectoryName(assemblyPath) + "/**/*.cs";
-            projectBuilder.Append("		 <Compile Include=\"").Append(allAssemblyScriptsPath).Append("\" />").Append(Environment.NewLine);
+			var assemblyPath = CompilationPipeline.GetAssemblyDefinitionFilePathFromAssemblyReference(assembly.Name);
+			var allAssetsAssemblyScriptsPath = Path.GetDirectoryName(assemblyPath) + "Assets/**/*.cs";
+			projectBuilder.Append("		 <Compile Include=\"").Append(allAssetsAssemblyScriptsPath).Append("\" />").Append(Environment.NewLine);
 
 			foreach (var file in assembly.SourceFiles)
 			{
